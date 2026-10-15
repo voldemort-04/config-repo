@@ -1,3 +1,9 @@
 campus:
   organization: EMI
   message: TP6-v3
+
+server:
+  error:
+    include-message: always
+    include-exception: true
+    include-stacktrace: always
