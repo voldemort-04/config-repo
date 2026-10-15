@@ -16,3 +16,20 @@ spring:
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Gateway, gateway-service
+      server:
+        webflux:
+          routes:
+            - id: department-route
+              uri: lb://department-service
+              predicates:
+                - Path=/campus/api/departments/**
+              filters:
+                - StripPrefix=1
+                - AddResponseHeader=X-Gateway, gateway-service
+            - id: teacher-route
+              uri: lb://teacher-service
+              predicates:
+                - Path=/campus/api/teachers/**
+              filters:
+                - StripPrefix=1
+                - AddResponseHeader=X-Gateway, gateway-service
